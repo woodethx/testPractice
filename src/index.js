@@ -13,3 +13,31 @@ export function reverseString(string){
     arr = arr.reverse();
     return arr.join('');
 }
+export const calculator = {
+    add(a,b){
+        return a+b;
+    },
+    subtract(a,b){
+        return a-b;
+    },
+    divide(a,b){
+        return a/b;
+    },
+    multiply(a,b){
+        return a*b;
+    }
+}
+export function caesarCipher(string, shift){
+    let arr = []
+    for (let i = 0; i < string.length; i++) {
+        let code = string.charCodeAt(i);
+        let upper = string.charAt(i) == string.charAt(i).toUpperCase();
+        let nonABC = code < 65 || (code > 90 && code < 97) || code > 122
+        if(!nonABC) code = code+shift;
+        if(code > 122) code = code - 26;
+        if(upper && code > 90) code = code - 26;
+        console.log(code);
+        arr.push(String.fromCharCode(code));
+    }
+    return arr.join('');
+}
