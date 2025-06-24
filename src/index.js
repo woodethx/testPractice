@@ -36,8 +36,23 @@ export function caesarCipher(string, shift){
         if(!nonABC) code = code+shift;
         if(code > 122) code = code - 26;
         if(upper && code > 90) code = code - 26;
-        console.log(code);
         arr.push(String.fromCharCode(code));
     }
     return arr.join('');
+}
+export function analyzeArray(arr){
+    let min = null;
+    let max = null;
+    let sum = 0;
+    arr.forEach(el  => {
+        if(!min || min > el) min = el;
+        if(!max || max < el) max = el;
+        sum += el;
+    })
+    return {
+        average: sum/arr.length,
+        min: min,
+        max: max,
+        length: arr.length
+    }
 }

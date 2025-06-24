@@ -1,4 +1,4 @@
-import { capitalize, reverseString, calculator, caesarCipher } from "./index.js";
+import { capitalize, reverseString, calculator, caesarCipher, analyzeArray } from "./index.js";
 describe('capitalize function', () => {
     test('returns Ethan given ethan', () => {
         const actual = capitalize("ethan");
@@ -85,5 +85,27 @@ describe('caesarCipher function', () => {
         const actual = caesarCipher('Hello, World!', 3);
         const expected = 'Khoor, Zruog!';
         expect(actual).toBe(expected);
+    });
+});
+describe('analyzeArray function', () => {
+    test('Odin Test', () => {
+        const actual = analyzeArray([1,8,3,4,2,6]);
+        const expected = {
+            average: 4,
+            min: 1,
+            max: 8,
+            length: 6
+        };
+        expect(actual).toStrictEqual(expected);
+    });
+    test('Happy Path', () => {
+        const actual = analyzeArray([2,3,4,5,6,7]);
+        const expected = {
+            average: 4.5,
+            min: 2,
+            max: 7,
+            length: 6
+        };
+        expect(actual).toStrictEqual(expected);
     });
 })
